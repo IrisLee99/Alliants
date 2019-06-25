@@ -11,8 +11,8 @@ createServer((req, res)=> {
     switch(req.url) {
         case "/": 
             return sendFile(res, 200, "text/html", "./index.html");
-        case "/search/car/car1":
-            return sendFile(res, 200, "image/jpeg", "https://live.staticflickr.com/65535/48127193876_303c27f13a_m.jpg");
+        case "/search_result_page.html?SearchTerm=car":
+            return sendFile(res, 200, "text/html", "./search_result_page.html");
         case "/styles.css":
             return sendFile(res, 200, "text/css", "./styles.css");
         default:
