@@ -1,5 +1,11 @@
+import express from 'express';
+
+const app = express();
+const PORT = 3000;
+
 const { createServer} = require("http");
 const { createReadStream} = require("fs");
+
 const sendFile = (res, status, type, filePath) => {
     res.writeHead(status, {"Content-Type" : type});
 
@@ -19,6 +25,6 @@ createServer((req, res)=> {
             return sendFile(res, 200, "text/html", "./404.html");    
     }
 
-}).listen(3000);
+}).listen(PORT);
 
-console.log("Iris's personal website running on port 3000");
+console.log(`Iris's personal website running on port ${PORT}` );
