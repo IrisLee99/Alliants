@@ -1,20 +1,24 @@
 import express from 'express';
+import routes from './src/routes/searchRoutes';
 
 const app = express();
 const PORT = 3000;
 
-const { createServer} = require("http");
-const { createReadStream} = require("fs");
+routes(app);
 
-const sendFile = (res, status, type, filePath) => {
+//const { createServer} = require("http");
+//const { createReadStream} = require("fs");
+
+/*const sendFile = (res, status, type, filePath) => {
     res.writeHead(status, {"Content-Type" : type});
 
     createReadStream(filePath).pipe(res);
-};
+};*/
 
-createServer((req, res)=> {
+app.get('/', (req, res)=> 
 
-    switch(req.url) {
+    res.send(`Iris's personal website running on port ${PORT}` )
+    /*switch(req.url) {
         case "/": 
             return sendFile(res, 200, "text/html", "./index.html");
         case "/search_result_page.html?SearchTerm=car":
@@ -23,8 +27,8 @@ createServer((req, res)=> {
             return sendFile(res, 200, "text/css", "./styles.css");
         default:
             return sendFile(res, 200, "text/html", "./404.html");    
-    }
+    }*/
 
-}).listen(PORT);
+).listen(PORT);
 
 console.log(`Iris's personal website running on port ${PORT}` );
