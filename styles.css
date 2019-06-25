@@ -1,0 +1,11 @@
+body {
+    background-color: #728250;
+    color: #030500;
+    font-family: Arial Verdana;
+}
+
+img {
+    border: solid 2px white;
+    padding: 2px;
+    width: 300px;
+}
