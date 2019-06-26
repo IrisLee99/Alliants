@@ -39,11 +39,11 @@ app.get('/', (req, res)=> {
         case "/": 
             return sendFile(res, 200, "text/html", "./index.html");
         case "/image":
-            console.log(`Static image path ${imagefilename}` );
-            //return sendFile(res, 200, "image/jpg", imagefilename);    
+            //console.log(`Static image path ${imagefilename}` );
+            return sendFile(res, 200, "image/jpg", imagefilename);    
         case "/video":
-            console.log(`Static video path ${videofilename}` );
-            //return sendFile(res, 200, "video/mp4", videofilename);    
+            //console.log(`Static video path ${videofilename}` );
+            return sendFile(res, 200, "video/mp4", videofilename);    
         case "/search_result_page.html?SearchTerm=car":
             return sendFile(res, 200, "text/html", "./search_result_page.html");
         case "/styles.css":
