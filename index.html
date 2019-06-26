@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flickr Search</title>
+    <title>Video/Image Search</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 
 <body>
 
     <form action="./search_result_page.html">
-            Flickr Image Search: <input type="text" name="SearchTerm" value="car"><br>
+            Youtube Video Search: <input type="text" name="SearchTerm" value="car"><br>
             <input type="submit" value="Search">
     </form>
     
-    <video id="videoPlayer" controls>
-        <source src="http://localhost:3000/video" type="video/mp4">
-    </video>        
+    <img src="http://cdn.kidscreen.com/wp/wp-content/uploads/2018/10/PeppaPig.jpg?4b58de" alt="first image">
+
+    <form action="./search_result_page.html">
+        Flickr Image Search: <input type="text" name="SearchTerm" value="car"><br>
+        <input type="submit" value="Search">
+    </form>
+
+    <iframe width="679" height="382" src="https://www.youtube.com/embed/9TQKyDD9Yig" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>       
+
+
 </body>
 </html>
