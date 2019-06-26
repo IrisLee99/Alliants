@@ -1,4 +1,4 @@
-import { addNewSearch, getSearch } from "../controllers/searchController";
+import { addNewSearch, getSearch, getSearchWithId } from "../controllers/searchController";
 
 const routes = (app) => {
     app.route('/search')
@@ -12,10 +12,15 @@ const routes = (app) => {
     //POST endpoint
     .post(addNewSearch);
 
-    app.route('/search/:searchTerm')
+    app.route('/search/:searchId')
+    //get specific search 
+    .get(getSearchWithId)
+    
+    //put request
     .put((req, res) =>
     res.send('PUT request successful'))
 
+    //delete request
     .delete((req, res) =>
     res.send("DELETE request successful"));
 

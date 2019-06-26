@@ -23,3 +23,12 @@ export const getSearch = (req, res) => {
 
     });
 };
+
+export const getSearchWithId = (req, res) => {
+    Search.findById(req.params.searchId, (err, search) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(search);
+    });
+}
