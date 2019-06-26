@@ -6,6 +6,9 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 3000;
 
+const videofilename = './public/IMG_960.mp4';
+const imagefilename = './public/peppa.jpg';
+
 //mongoose connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/AlliantDB', {
@@ -18,29 +21,38 @@ app.use(bodyParser.json());
 
 routes(app);
 
-//const { createServer} = require("http");
-//const { createReadStream} = require("fs");
+//trying static files
+app.use(express.static('public'));
 
-/*const sendFile = (res, status, type, filePath) => {
+//const { createServer} = require("http");
+const { createReadStream} = require("fs");
+
+const sendFile = (res, status, type, filePath) => {
     res.writeHead(status, {"Content-Type" : type});
 
     createReadStream(filePath).pipe(res);
-};*/
+};
 
-app.get('/', (req, res)=> 
+app.get('/', (req, res)=> {
 
-    res.send(`Iris's personal website running on port ${PORT}` )
-    /*switch(req.url) {
+    switch(req.url) {
         case "/": 
             return sendFile(res, 200, "text/html", "./index.html");
+        case "/image":
+            console.log(`Static image path ${imagefilename}` );
+            //return sendFile(res, 200, "image/jpg", imagefilename);    
+        case "/video":
+            console.log(`Static video path ${videofilename}` );
+            //return sendFile(res, 200, "video/mp4", videofilename);    
         case "/search_result_page.html?SearchTerm=car":
             return sendFile(res, 200, "text/html", "./search_result_page.html");
         case "/styles.css":
             return sendFile(res, 200, "text/css", "./styles.css");
         default:
             return sendFile(res, 200, "text/html", "./404.html");    
-    }*/
+    }
+    
 
-).listen(PORT);
+}).listen(PORT);
 
 console.log(`Iris's personal website running on port ${PORT}` );

@@ -32,3 +32,4 @@ export const getSearchWithId = (req, res) => {
         res.json(search);
     });
 }
+
