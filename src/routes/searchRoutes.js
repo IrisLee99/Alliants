@@ -1,4 +1,4 @@
-import { addNewSearch } from "../controllers/searchController";
+import { addNewSearch, getSearch } from "../controllers/searchController";
 
 const routes = (app) => {
     app.route('/search')
@@ -7,9 +7,7 @@ const routes = (app) => {
         console.log(`Request from: ${req.originalUrl}`)
         console.log(`Request type: ${req.method}`)
         next();
-    }, (req, res, next) => {
-        res.send('GET request successful')
-    })
+    }, getSearch)
     
     //POST endpoint
     .post(addNewSearch);

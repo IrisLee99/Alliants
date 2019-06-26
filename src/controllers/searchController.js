@@ -12,4 +12,14 @@ export const addNewSearch = (req, res) => {
         }
         res.json(search);
     });
+}
+
+export const getSearch = (req, res) => {
+    Search.find({}, (err,search) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(search);
+
+    });
 };
