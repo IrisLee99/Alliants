@@ -5,6 +5,9 @@ const Search = mongoose.model('Search', SearchSchema);
 
 const videofilename = './public/IMG_960.mp4';
 const imagefilename = './public/peppa.jpg';
+const fs = require('fs');
+const tmpl = fs.readFileSync(require.resolve('../../search_result_page.html'), 'utf8');
+
 
 const { createReadStream} = require("fs");
 const sendFile = (res, status, type, filePath) => {
@@ -29,6 +32,7 @@ export const addNewSearch = (req, res) => {
 
 export let videoTitle = "";
 export let videoId = ""; 
+
 youtube.searchVideos('Centuries', 4)
 .then(results => {
     console.log(`The video's title is ${results[0].title}`);
@@ -36,11 +40,15 @@ youtube.searchVideos('Centuries', 4)
     console.log(`The video's id is ${results[0].id}`);
     videoId = results[0].id;
     console.log(`The video's url is ${results[0].url}`);
-
+    
 })
 .catch(console.log);
-export const getVideo = (req, res) => {
 
+export const getVideo = (req, res) => {
+    //const html = tmpl.replace('{{videoURL}}', `https://www.youtube.com/embed/'${videoId}`);
+    //let videoURL = "https://www.youtube.com/embed/" + videoId;
+    //console.log("line 49 searchController");
+    //return sendFile(res, 200, "text/html", html);
     /*Search.find({}, (err,search) => {
         if (err) {
             res.send(err);
