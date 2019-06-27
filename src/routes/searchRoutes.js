@@ -20,7 +20,9 @@ const routes = (app) => {
             console.log(`Response video ID: ${videoId}`);
             const html = tmpl.replace('{{videoURL}}', `https://www.youtube.com/embed/${videoId}`);
             console.log("line 22 searchRoutes");
-            fs.writeFileSync('./search_result_page.html',html);
+            fs.writeFile(require.resolve('../../search_result_page.html'),html, (err) => {
+                    if (err) throw err;
+            });
             return sendFile(getVideo.res, 200, "text/html", './search_result_page.html');
             //next();
         
