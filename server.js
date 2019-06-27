@@ -3,11 +3,12 @@ import routes from './src/routes/searchRoutes';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
+const http = require('http');
+
+
 const app = express();
 const PORT = 3000;
 
-const videofilename = './public/IMG_960.mp4';
-const imagefilename = './public/peppa.jpg';
 
 //mongoose connection
 mongoose.Promise = global.Promise;
@@ -37,13 +38,17 @@ app.get('/', (req, res)=> {
 
     /*switch(req.url) {
         case "/": 
+            console.log("homepage");
             return sendFile(res, 200, "text/html", "./index.html");
         case "/image":
-            //console.log(`Static image path ${imagefilename}` );
+            console.log(`Static image path ${imagefilename}` );
             return sendFile(res, 200, "image/jpg", imagefilename);    
         case "/video":
-            //console.log(`Static video path ${videofilename}` );
-            return sendFile(res, 200, "video/mp4", videofilename);    
+            //const html = tmpl.replace('{{videoURL}}', `https://www.youtube.com/embed/'${videoId}`);
+            console.log("line 52 server.js");
+            console.log(`Youtube video path ${res.videoId}` );
+            //return sendFile(res, 200, "text/html", "./search_result_page.html");
+            //return sendFile(res, 200, "video/mp4", videofilename);    
         case "/search_result_page.html?SearchTerm=car":
             return sendFile(res, 200, "text/html", "./search_result_page.html");
         case "/styles.css":
