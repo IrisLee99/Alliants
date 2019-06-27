@@ -35,7 +35,7 @@ const sendFile = (res, status, type, filePath) => {
 
 app.get('/', (req, res)=> {
 
-    switch(req.url) {
+    /*switch(req.url) {
         case "/": 
             return sendFile(res, 200, "text/html", "./index.html");
         case "/image":
@@ -50,7 +50,7 @@ app.get('/', (req, res)=> {
             return sendFile(res, 200, "text/css", "./styles.css");
         default:
             return sendFile(res, 200, "text/html", "./404.html");    
-    }
+    }*/
     
 
 }).listen(PORT);
