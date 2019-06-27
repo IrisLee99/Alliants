@@ -6,11 +6,16 @@ const Search = mongoose.model('Search', SearchSchema);
 const YouTube = require('simple-youtube-api');
 export const youtube = new YouTube('AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU');
 
+let videoTitle = "";
+let videoId = "";
 youtube.searchVideos('Centuries', 4)
     .then(results => {
-        console.log(`The video's title is ${results[0].title}`);
-        console.log(`The video's id is ${results[0].id}`);
+        //console.log(`The video's title is ${results[0].title}`);
+        videoTitle = results[0].title;
+        //console.log(`The video's id is ${results[0].id}`);
+        videoId = results[0].id;
         console.log(`The video's url is ${results[0].url}`);
+
     })
     .catch(console.log);
 
