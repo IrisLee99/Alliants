@@ -38,9 +38,15 @@ const sendFile = (res, status, type, filePath) => {
     createReadStream(filePath).pipe(res);
 };
 
+// Models
+//const Image = require('./models/Image');
+
 app.get('/', (req, res)=> {
 
-    res.render('index');
+    //const images = await Image.find();
+    let ImagesearchTerm = 'peppapig';
+
+    res.render('index', {ImagesearchTerm});
 
     /*switch(req.url) {
         case "/": 
