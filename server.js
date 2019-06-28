@@ -9,7 +9,10 @@ const http = require('http');
 const app = express();
 const PORT = 3000;
 
-app.set('view engine'. 'ejs');
+//ejs setup
+app.engine('ejs', require('ejs').renderFile);
+app.set('views', './src/views');
+app.set('view engine', 'ejs');
 
 //mongoose connection
 mongoose.Promise = global.Promise;
@@ -36,6 +39,8 @@ const sendFile = (res, status, type, filePath) => {
 };
 
 app.get('/', (req, res)=> {
+
+    res.render('index');
 
     /*switch(req.url) {
         case "/": 
